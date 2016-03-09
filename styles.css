@@ -19,6 +19,7 @@ html, body {
   align-items: center;
   height: 100%;
   text-align: center;
+  flex-direction:column;
 }
 
 .content {
@@ -80,4 +81,13 @@ hr {
 .signatures div {
   font-size: 0.8em;
   margin: -1px 0;
+}
+
+.about {
+  margin-top: 20px;
+}
+
+a, a:hover, a:active {
+  color: #0B240C;
+  text-decoration: none;
 }

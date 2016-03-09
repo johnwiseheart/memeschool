@@ -7,85 +7,85 @@
   <body onLoad="fixDate()">
     <div class="container">
       <div class="inner">
-          <h1>Meme School</h1>
-          <h2 class="graduation">Certificate of Graduation</h2>
-          <h3>This certifies that</h3>
-          <h2 id="name" contenteditable="true">-your name here-</h2>
-          <h3>has successfully completed studies in</h3>
-          <h2>Memes</h2>
-          <h3 class="date" id="date">Wednesday 2nd July 2016</h3>
-          <div class="row row-sm signatures-wrapper">
-            <div class="column signatures">
-              <h4>David Bowie</h4>
-              <hr>
-              <div>
-                David Bowie<br />
-                School Founder and Meme Artist
-              </div>
+        <h1>Meme School</h1>
+        <h2 class="graduation">Certificate of Graduation</h2>
+        <h3>This certifies that</h3>
+        <h2 id="name" contenteditable="true">-your name here-</h2>
+        <h3>has successfully completed studies in</h3>
+        <h2>Memes</h2>
+        <h3 class="date" id="date">Wednesday 2nd July 2016</h3>
+        <div class="row row-sm signatures-wrapper">
+          <div class="column signatures">
+            <h4>David Bowie</h4>
+            <hr>
+            <div>
+              David Bowie<br />
+              School Founder and Meme Artist
             </div>
-            <div class="column"></div>
-            <div class="column signatures">
-              <h4>John Wiseheart</h4>
-              <hr>
-              <div>
-                John Wiseheart<br />
-                Meme Artist
-              </div>
+          </div>
+          <div class="column"></div>
+          <div class="column signatures">
+            <h4>John Wiseheart</h4>
+            <hr>
+            <div>
+              John Wiseheart<br />
+              Meme Artist
             </div>
-  </div>
+          </div>
         </div>
       </div>
+      <div class="about"><a href="https://www.youtube.com/v/fJdA7dwx6-4&autoplay=1&loop=1&playlist=fJdA7dwx6-4">about meme school</a></div>
     </div>
     <script>
-    Date.prototype.monthNames = [
-        "January", "February", "March",
-        "April", "May", "June",
-        "July", "August", "September",
-        "October", "November", "December"
-    ];
+      Date.prototype.monthNames = [
+          "January", "February", "March",
+          "April", "May", "June",
+          "July", "August", "September",
+          "October", "November", "December"
+      ];
 
-    Date.prototype.dayNames = [
-      'Sunday', 'Monday', 'Tuesday',
-      'Wednesday','Thursday','Friday',
-      'Saturday'
-    ];
+      Date.prototype.dayNames = [
+        'Sunday', 'Monday', 'Tuesday',
+        'Wednesday','Thursday','Friday',
+        'Saturday'
+      ];
 
 
-    Date.prototype.getDayName = function() {
-        return this.dayNames[this.getDay()];
-    };
+      Date.prototype.getDayName = function() {
+          return this.dayNames[this.getDay()];
+      };
 
-    Date.prototype.getMonthName = function() {
-        return this.monthNames[this.getMonth()];
-    };
-    Date.prototype.getShortMonthName = function () {
-        return this.getMonthName().substr(0, 3);
-    };
+      Date.prototype.getMonthName = function() {
+          return this.monthNames[this.getMonth()];
+      };
+      Date.prototype.getShortMonthName = function () {
+          return this.getMonthName().substr(0, 3);
+      };
 
-    function nth(d) {
-      if(d>3 && d<21) return 'th';
-      switch (d % 10) {
-            case 1:  return "st";
-            case 2:  return "nd";
-            case 3:  return "rd";
-            default: return "th";
-        }
-    }
+      function nth(d) {
+        if(d>3 && d<21) return 'th';
+        switch (d % 10) {
+              case 1:  return "st";
+              case 2:  return "nd";
+              case 3:  return "rd";
+              default: return "th";
+          }
+      }
 
-    document.getElementById('name').onfocus = function() {
-      this.innerHTML = '';
-    };
+      document.getElementById('name').onfocus = function() {
+        this.innerHTML = '';
+      };
 
-    function fixDate() {
-      var today = new Date();
-      var day = today.getDayName();
-      var dd = today.getDate();
-      var mm = today.getMonthName(); //January is 0!
-      var yyyy = today.getFullYear();
+      function fixDate() {
+        var today = new Date();
+        var day = today.getDayName();
+        var dd = today.getDate();
+        var mm = today.getMonthName(); //January is 0!
+        var yyyy = today.getFullYear();
 
-      today = day + ' ' + dd + nth(dd) + ' ' + mm + ' ' + yyyy;
-      document.getElementById('date').innerHTML = today;
-    }
+        today = day + ' ' + dd + nth(dd) + ' ' + mm + ' ' + yyyy;
+        document.getElementById('date').innerHTML = today;
+      }
     </script>
   </body>
 </html>
