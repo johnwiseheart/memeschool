@@ -72,16 +72,31 @@
           }
       }
 
+      function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+      }
+
       document.getElementById('name').onfocus = function() {
         this.innerHTML = '';
       };
+
+      document.getElementById('name').onblur = function(e) {
+        console.log(this)
+        window.history.pushState('index.html', 'Meme School', '?name=' + this.innerHTML);
+      }
 
       function fixDate() {
         var today = new Date();
         var day = today.getDayName();
         var dd = today.getDate();
-        var mm = today.getMonthName(); //January is 0!
+        var mm = today.getMonthName();
         var yyyy = today.getFullYear();
+
+        console.log(getURLParameter('name'))
+
+        if (getURLParameter('name')) {
+          document.getElementById('name').innerHTML = getURLParameter('name');
+        }
 
         today = day + ' ' + dd + nth(dd) + ' ' + mm + ' ' + yyyy;
         document.getElementById('date').innerHTML = today;
