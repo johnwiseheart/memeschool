@@ -1,0 +1,11 @@
+pages:
+  script:
+    - mkdir -p public
+    - cp diploma.ttf public
+    - cp *.css public
+    - cp *.html public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
