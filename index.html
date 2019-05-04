@@ -1,9 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Meme School</title>
-    <link rel="stylesheet" href="grid.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="grid.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-139517135-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-139517135-3");
+    </script>
   </head>
   <body onLoad="fixDate()">
     <div class="container">
@@ -18,7 +31,7 @@
         <div class="row row-sm signatures-wrapper">
           <div class="column signatures">
             <h4>David Bowie</h4>
-            <hr>
+            <hr />
             <div>
               David Bowie<br />
               School Founder and Meme Artist
@@ -27,7 +40,7 @@
           <div class="column"></div>
           <div class="column signatures">
             <h4>John Wiseheart</h4>
-            <hr>
+            <hr />
             <div>
               John Wiseheart<br />
               Meme Artist
@@ -35,56 +48,85 @@
           </div>
         </div>
       </div>
-      <div class="about"><a href="https://www.youtube.com/watch?v=fJdA7dwx6-4">about meme school</a></div>
+      <div class="about">
+        <a href="https://www.youtube.com/watch?v=fJdA7dwx6-4"
+          >about meme school</a
+        >
+      </div>
     </div>
     <script>
       Date.prototype.monthNames = [
-          "January", "February", "March",
-          "April", "May", "June",
-          "July", "August", "September",
-          "October", "November", "December"
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
       ];
 
       Date.prototype.dayNames = [
-        'Sunday', 'Monday', 'Tuesday',
-        'Wednesday','Thursday','Friday',
-        'Saturday'
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
       ];
 
-
       Date.prototype.getDayName = function() {
-          return this.dayNames[this.getDay()];
+        return this.dayNames[this.getDay()];
       };
 
       Date.prototype.getMonthName = function() {
-          return this.monthNames[this.getMonth()];
+        return this.monthNames[this.getMonth()];
       };
-      Date.prototype.getShortMonthName = function () {
-          return this.getMonthName().substr(0, 3);
+      Date.prototype.getShortMonthName = function() {
+        return this.getMonthName().substr(0, 3);
       };
 
       function nth(d) {
-        if(d>3 && d<21) return 'th';
+        if (d > 3 && d < 21) return "th";
         switch (d % 10) {
-              case 1:  return "st";
-              case 2:  return "nd";
-              case 3:  return "rd";
-              default: return "th";
-          }
+          case 1:
+            return "st";
+          case 2:
+            return "nd";
+          case 3:
+            return "rd";
+          default:
+            return "th";
+        }
       }
 
       function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+        return (
+          decodeURIComponent(
+            (new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(
+              location.search
+            ) || [, ""])[1].replace(/\+/g, "%20")
+          ) || null
+        );
       }
 
-      document.getElementById('name').onfocus = function() {
-        this.innerHTML = '';
+      document.getElementById("name").onfocus = function() {
+        this.innerHTML = "";
       };
 
-      document.getElementById('name').onblur = function(e) {
-        console.log(this)
-        window.history.pushState('index.html', 'Meme School', '?name=' + this.innerHTML);
-      }
+      document.getElementById("name").onblur = function(e) {
+        console.log(this);
+        window.history.pushState(
+          "index.html",
+          "Meme School",
+          "?name=" + this.innerHTML
+        );
+      };
 
       function fixDate() {
         var today = new Date();
@@ -93,14 +135,14 @@
         var mm = today.getMonthName();
         var yyyy = today.getFullYear();
 
-        console.log(getURLParameter('name'))
+        console.log(getURLParameter("name"));
 
-        if (getURLParameter('name')) {
-          document.getElementById('name').innerHTML = getURLParameter('name');
+        if (getURLParameter("name")) {
+          document.getElementById("name").innerHTML = getURLParameter("name");
         }
 
-        today = day + ' ' + dd + nth(dd) + ' ' + mm + ' ' + yyyy;
-        document.getElementById('date').innerHTML = today;
+        today = day + " " + dd + nth(dd) + " " + mm + " " + yyyy;
+        document.getElementById("date").innerHTML = today;
       }
     </script>
   </body>
